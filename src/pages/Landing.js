@@ -21,7 +21,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import StickyFooter from "../footer";
 import logo from "./quarantine-logo.png"
 import LogoutIcon from "@mui/icons-material/Logout";
-import share from "./share.jpeg"
+import share from "./share.png"
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
