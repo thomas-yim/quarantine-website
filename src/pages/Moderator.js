@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import LogoutIcon from '@mui/icons-material/Logout';
+import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
+import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 import {
-    CssBaseline, 
+    CssBaseline,
     ListItemButton,
     Box,
     Toolbar,
@@ -10,9 +13,14 @@ import {
     Paper,
     AppBar,
     ListItem,
-    ListItemText
-    } from '@mui/material';
+    ListItemText, CardActionArea
+} from '@mui/material';
 import {FixedSizeList} from 'react-window';
+import Stack from "@mui/material/Stack";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
+import StickyFooter from "../footer";
 
 function Copyright(props) {
   return (
@@ -28,8 +36,8 @@ function MyAppBar() {
     return (
         <AppBar position="static">
             <Toolbar>
-                <Typography variant="h4">Quarantine</Typography>
-                <Typography style={{marginLeft:"auto"}} variant="h4">sign out</Typography>
+                    <Typography variant="h6">Quarantine</Typography>
+                    <Typography style={{marginLeft:"auto"}} variant="h6">sign out <LogoutIcon/></Typography>
             </Toolbar>
         </AppBar>
     );
@@ -97,7 +105,9 @@ class Moderator extends Component {
                 <Container>
                     <Grid container spacing={4} xs={12}>
                         <Grid item xs={12}>
-                            <Typography align="center" variant="h3">Moderator Dashboard</Typography>
+                            <Container>
+                            <a href="/home"><Typography style={{fontSize:17, fontWeight:400, marginLeft:-20}} align="left" href={"/home"} display={"inline"}>Home </Typography></a><Typography style={{fontSize:17, fontWeight:400}} align="left" display={"inline"}>/ Moderator Dashboard</Typography>
+                            </Container>
                         </Grid>
                         <Grid item xs={4}>
                             <Paper
@@ -132,37 +142,50 @@ class Moderator extends Component {
                                     }}
                                     >
                                     <br/>
-                                    <Typography align="center" variant="h5" style={{fontWeight: 600}} gutterBottom>Content Text</Typography>
+                                    <Typography align="left" variant="h5" style={{fontWeight: 600}} gutterBottom>Content Text</Typography>
                                     <Typography align="left" variant="h5">{this.state.currentText["content"]}</Typography>
                                 </Paper>
                             </Grid>
-                            <Grid item xs={6} sx={{display: "grid", placeContent: "center"}}>
-                                <img onClick={this.disapprove} style={{height:"20vh", width:"20vh", alignItems:"right"}} src="https://upload.wikimedia.org/wikipedia/commons/8/83/Eo_circle_red_white_letter-x.svg"></img>
+                            <Grid container spacing={2} style={{marginLeft:27}}>
+                                <Grid item xs={6}>
+                                <Card sx={{ width: 300, height: 130, background:"#1ddb2f"}}>
+                                    <CardActionArea sx={{ width: 300, height: 130}}>
+                                        <CardContent>
+                                            <Typography  align="center" style={{marginTop:0}}>
+                                                <ThumbUpOffAltIcon style={{fontSize: 70, fontWeight:500}}/>
+                                            </Typography>
+                                        </CardContent>
+                                    </CardActionArea>
+                                </Card>
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <Card sx={{ width: 300, height: 130, background:"#e63a2e"}}>
+                                        <CardActionArea sx={{ width: 300, height: 130}}>
+                                            <CardContent>
+                                                <Typography  align="center" style={{marginTop:0}}>
+                                                    <ThumbDownOffAltIcon style={{fontSize: 70, fontWeight:500}}/>
+                                                </Typography>
+                                            </CardContent>
+                                        </CardActionArea>
+                                    </Card>
+                                </Grid>
                             </Grid>
-                            <Grid item xs={6} sx={{display: "grid", placeContent: "center"}}>
-                                <img onClick={this.approve} style={{height:"20vh", width:"20vh", alignItems:"center"}} src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Eo_circle_green_white_checkmark.svg" onclick="console.log('here')"></img>
-                            </Grid>
+
+                            {/*<Grid item xs={6} sx={{display: "grid", placeContent: "center"}}>*/}
+
+                            {/*    <img onClick={this.disapprove} style={{height:"10vh", width:"20vh", alignItems:"right"}} src="https://upload.wikimedia.org/wikipedia/commons/8/83/Eo_circle_red_white_letter-x.svg"></img>*/}
+                            {/*</Grid>*/}
+                            {/*<Grid item xs={6} sx={{display: "grid", placeContent: "center"}}>*/}
+                            {/*    <img onClick={this.approve} style={{height:"20vh", width:"20vh", alignItems:"center"}} src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Eo_circle_green_white_checkmark.svg" onclick="console.log('here')"></img>*/}
+                            {/*</Grid>*/}
                             </Grid>
                         
                     </Grid>
-                    
+
                 </Container>
                 </Box>
             </Box>
-            <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
-        <Typography variant="h6" align="center" gutterBottom>
-            Thomas Yim '25 and Daniel Longo '25
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="text.secondary"
-          component="p"
-        >
-          TreeHacks 2022
-        </Typography>
-        <Copyright />
-      </Box>
+            <StickyFooter/>
         </div>
     );
                             }

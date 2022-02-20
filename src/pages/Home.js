@@ -18,7 +18,9 @@ import Container from '@mui/material/Container';
 import {Link} from "react-router-dom"
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import 'bootstrap/dist/css/bootstrap.css'
-
+import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
+import {CardActionArea} from "@mui/material";
+import StickyFooter from "../footer";
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
@@ -39,59 +41,55 @@ export default function Home() {
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
-          <Typography style={{fontWeight: 1000}} variant="h4"noWrap>
+          <Typography style={{fontWeight: 1000}} noWrap>
             Quarantine
           </Typography>
         </Toolbar>
       </AppBar>
-      <main>
-        {/* Hero unit */}
-        <Box
-          sx={{
-            bgcolor: 'background.paper',
-            pt: 8,
-            pb: 6,
-          }}
-        >
-          <Container maxWidth="sm">
+        {/*<Box*/}
+        {/*    style={{alignItems: "left", justifyContent:"left", background:"red"}}*/}
+        {/*  sx={{*/}
+        {/*    bgcolor: 'background.paper',*/}
+        {/*    pt: 8,*/}
+        {/*    pb: 6*/}
+
+        {/*  }}*/}
+        {/*>*/}
+          <div style={{justifyContent:"left", width:"100%", padding:35}}>
             <Typography
               component="h1"
-              variant="h2"
-              align="center"
+              variant="h4"
               color="text.primary"
               gutterBottom
             >
-              Quarantine
+              Welcome Back
             </Typography>
-            <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              Welcome
-            </Typography>
-            <Stack
-              sx={{ pt: 8 }}
-              direction="row"
-              spacing={2}
-              justifyContent="center"
-            >
-              <Link style={{maxWidth: '200px', maxHeight: '120px', minWidth: '200px', minHeight: '120px'}} className="btn btn-primary" to="/developer">Developer</Link>
-              <Link style={{maxWidth: '200px', maxHeight: '120px', minWidth: '200px', minHeight: '120px'}} className="btn btn-primary" to="/moderator">Moderator</Link>
-            </Stack>
-          </Container>
-        </Box>
-      </main>
-      <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
-        <Typography variant="h6" align="center" gutterBottom>
-            Thomas Yim '25 and Daniel Longo '25
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="text.secondary"
-          component="p"
-        >
-          TreeHacks 2022
-        </Typography>
-        <Copyright />
-      </Box>
+              <Stack spacing={2}>
+                  <Card sx={{ width: 400, height: 150, background:"#40c77d"}}>
+                      <CardActionArea sx={{ width: 400, height: 150}} href="/moderate">
+                      <CardContent>
+                          <Typography component="div" style={{fontSize: 22, fontWeight:500}}>
+                              I'm a Developer
+                              <DoubleArrowIcon/>
+                          </Typography>
+                      </CardContent>
+                      </CardActionArea>
+                  </Card>
+                  <Card sx={{ width: 400, height: 150, background:"#c75b40", marginTop:150 }}>
+                      <CardActionArea sx={{ width: 400, height: 150}} href="/moderator">
+                          <CardContent>
+                              <Typography component="div" style={{fontSize: 22, fontWeight:500}}>
+                                  I'm a Content Moderator
+                                  <DoubleArrowIcon/>
+                              </Typography>
+                          </CardContent>
+                      </CardActionArea>
+                  </Card>
+                  {/*<Link style={{maxWidth: '200px', maxHeight: '120px', minWidth: '200px', minHeight: '120px'}} className="btn btn-primary" to="/developer">Developer</Link>*/}
+                  {/*<Link style={{maxWidth: '200px', maxHeight: '120px', minWidth: '200px', minHeight: '120px'}} className="btn btn-primary" to="/moderator">Moderator</Link>*/}
+              </Stack>
+          </div>
+        <StickyFooter/>
     </ThemeProvider>
   );
 }

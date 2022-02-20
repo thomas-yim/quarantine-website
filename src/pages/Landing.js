@@ -18,6 +18,7 @@ import Container from '@mui/material/Container';
 import {Link} from "react-router-dom"
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import 'bootstrap/dist/css/bootstrap.css'
+import StickyFooter from "../footer";
 
 function Copyright() {
   return (
@@ -90,20 +91,7 @@ export default function Landing() {
           </Container>
         </Box>
       </main>
-      <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
-        <Typography variant="h6" align="center" gutterBottom>
-            Thomas Yim '25 and Daniel Longo '25
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="text.secondary"
-          component="p"
-        >
-          TreeHacks 2022
-        </Typography>
-        <Copyright />
-      </Box>
+     <StickyFooter/>
     </ThemeProvider>
   );
 }
