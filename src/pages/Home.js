@@ -66,7 +66,7 @@ export default function Home() {
             </Typography>
               <Stack spacing={2}>
                   <Card sx={{ width: 400, height: 150, background:"#40c77d"}}>
-                      <CardActionArea sx={{ width: 400, height: 150}} href="/moderate">
+                      <CardActionArea sx={{ width: 400, height: 150}} href="/developer">
                       <CardContent>
                           <Typography component="div" style={{fontSize: 22, fontWeight:500}}>
                               I'm a Developer
