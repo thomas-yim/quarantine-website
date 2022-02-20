@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
-    BrowserRouter as Router,
-    Route,
-}  from 'react-router-dom';
+    BrowserRouter,
+    Route, Switch
+} from 'react-router-dom';
 
 import Landing from "./pages/Landing"
 import Home from "./pages/Home"
@@ -15,14 +15,16 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
-        <Route exact path="/" component={Landing} />
-        <Route exact path="/home" component={Home} />
-        <Route path="/moderator" component={Moderator} />
-        <Route path="/developer" component={Developer} />
-        <Route path="/signin" component={SignIn} />
-        <Route path="/signup" component={SignUp} />
-    </Router>
+      <BrowserRouter>
+          <div>
+                <Route exact path="/home" component={Home} />
+                <Route path="/moderator" component={Moderator}/>
+                <Route path="/developer" component={Developer}/>
+                <Route path="/signin" component={SignIn}/>
+                <Route path="/signup" component={SignUp}/>
+                <Route exact path="/" component={Landing} />
+          </div>
+      </BrowserRouter>
 );
 }
 

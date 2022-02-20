@@ -9,15 +9,18 @@ import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 import StickyFooter from "../footer";
 import howworks from "./howworks.png"
 import {Code, CopyBlock} from "react-code-blocks";
+import logo from "./quarantine-logo.png";
 
 function MyAppBar() {
     return (
-        <AppBar>
+        <a href="/home"><AppBar>
             <Toolbar>
-                <Typography variant="h6">Quarantine</Typography>
+                <img src={logo} style={{width:70, padding:5}}/>
                 <Typography style={{marginLeft:"auto"}} variant="h6">sign out <LogoutIcon/></Typography>
             </Toolbar>
         </AppBar>
+        </a>
+
     );
 }
 export default function Developer(props) {

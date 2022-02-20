@@ -28,13 +28,60 @@ const theme = createTheme();
 
 export default function SignUp() {
   const handleSubmit = (event) => {
+
     event.preventDefault();
+
     const data = new FormData(event.currentTarget);
+
     // eslint-disable-next-line no-console
+
     console.log({
+
       email: data.get('email'),
+
       password: data.get('password'),
+
     });
+
+    fetch("https://quarantine-19d7d.uc.r.appspot.com/signUp", {
+
+      "method": "POST",
+
+      "headers": {
+
+        "Content-Type": "application/json"
+
+      },
+
+      "body": JSON.stringify({
+
+        email: data.get('email'),
+
+        password: data.get('password'),
+
+        hostname: data.get('email').split('@')[1],
+
+        username: data.get('firstName') + " " + data.get('lastName')
+
+      })
+
+    })
+        .then(response => response.json())
+        .then(response => {
+
+          console.log(response);
+          // props.setAccessToken(response.access_token)
+
+          window.location.replace("/home");
+
+        })
+
+        .catch(err => {
+
+          console.error(err);
+
+        });
+
   };
 
   return (

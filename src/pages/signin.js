@@ -28,13 +28,43 @@ const theme = createTheme();
 
 export default function SignIn() {
   const handleSubmit = (event) => {
+
     event.preventDefault();
+
     const data = new FormData(event.currentTarget);
+
     // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+
+    fetch('https://quarantine-19d7d.uc.r.appspot.com/token', {
+
+      method: 'POST',
+
+      body: new URLSearchParams({
+
+        'username': data.get('email'),
+
+        'password': data.get('password'),
+
+      })
+
+    }).then(response => response.json())
+
+        .then(response => {
+
+          console.log(response);
+          // props.setAccessToken(response.access_token)
+          window.location.replace("/home");
+
+
+
+        })
+
+        .catch(err => {
+
+          console.error(err);
+
+        });
+
   };
 
   return (

@@ -21,6 +21,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import StickyFooter from "../footer";
+import logo from "./quarantine-logo.png";
 
 function Copyright(props) {
   return (
@@ -34,12 +35,14 @@ function Copyright(props) {
 
 function MyAppBar() {
     return (
-        <AppBar position="static">
+        <a href="/home"><AppBar position="static">
             <Toolbar>
-                    <Typography variant="h6">Quarantine</Typography>
-                    <Typography style={{marginLeft:"auto"}} variant="h6">sign out <LogoutIcon/></Typography>
+                <img src={logo} style={{width:70, padding:5}}/>
+                <Typography style={{marginLeft:"auto"}} variant="h6">sign out <LogoutIcon/></Typography>
             </Toolbar>
         </AppBar>
+        </a>
+
     );
 }
 

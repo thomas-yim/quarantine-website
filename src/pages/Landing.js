@@ -19,7 +19,9 @@ import {Link} from "react-router-dom"
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import 'bootstrap/dist/css/bootstrap.css'
 import StickyFooter from "../footer";
-
+import logo from "./quarantine-logo.png"
+import LogoutIcon from "@mui/icons-material/Logout";
+import share from "./share.jpeg"
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
@@ -38,14 +40,14 @@ export default function Landing() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <Typography variant="h4" color="inherit" noWrap>
-            Quarantine
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <main>
+        <a href="/"><AppBar position="static">
+            <Toolbar>
+                <img src={logo} style={{width:70, padding:5}}/>
+            </Toolbar>
+        </AppBar>
+        </a>
+
+        <main>
         {/* Hero unit */}
         <Box
           sx={{
@@ -67,25 +69,32 @@ export default function Landing() {
                     >
                     Quarantine
                     </Typography>
-                    <Typography variant="h5" align="center" color="text.secondary" paragraph>
-                        Stop Bad Content.
+                    <Typography variant="h5" align="center" color="text.secondary" paragraph color="black">
+                        Human in the Loop Content Moderation
                     </Typography>
-                    <Typography variant="h6" align="center" color="text.secondary" paragraph>
-                        Join us in simplifying the moderation of user-generated content. Using a hybrid Artificial Intelligence and
-                        Human Intelligence moderation process, the Quarantine API helps to isolate negative user content.
+                    <Typography variant="h6" align="left" color="text.secondary" paragraph color="black">
+                        Add content moderation to your app without adding a single line of code.
                     </Typography>
+                    <Typography variant="h6" align="left" color="text.secondary" paragraph color="black">
+                         Flags text content for human moderator using AI. Our pretrained models keeps learning based off your moderator's labels improving with use.
+                    </Typography>
+
+                    <Typography variant="h6" align="left" color="text.secondary" paragraph color="black">
+                        Simple and easy content moderator portal. Just sign up with your work email and automatically access your sites flagged content.
+                    </Typography>
+                    <a href="/developer" ><Typography variant="h7">How it works</Typography></a>
                     <Stack
                         sx={{ pt: 4 }}
                         direction="row"
                         spacing={2}
-                        justifyContent="center"
+                        justifyContent="left"
                     >
-                    <Link className="btn btn-primary" to="/signup">Sign Up</Link>
+                    <Link className="btn btn-primary"  to="/signup">Sign Up</Link>
                     <Link className="btn btn-primary" to="/signin">Sign In</Link>
                     </Stack>
                 </Grid>
                 <Grid item xs={6}>
-                    <img style={{height:400, width:600 }} src="content-moderation.jpeg"></img>
+                    <img style={{height:450 }} src={share}></img>
                 </Grid>
           </Grid>
           </Container>

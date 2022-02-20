@@ -21,6 +21,8 @@ import 'bootstrap/dist/css/bootstrap.css'
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 import {CardActionArea} from "@mui/material";
 import StickyFooter from "../footer";
+import logo from "./quarantine-logo.png";
+import LogoutIcon from "@mui/icons-material/Logout";
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
@@ -39,13 +41,15 @@ export default function Home() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <Typography style={{fontWeight: 1000}} noWrap>
-            Quarantine
-          </Typography>
-        </Toolbar>
-      </AppBar>
+        <a href="/"><AppBar position="static">
+            <Toolbar>
+                <img src={logo} style={{width:70, padding:5}}/>
+                <Typography style={{marginLeft:"auto"}} variant="h6">sign out <LogoutIcon/></Typography>
+            </Toolbar>
+        </AppBar>
+        </a>
+
+
         {/*<Box*/}
         {/*    style={{alignItems: "left", justifyContent:"left", background:"red"}}*/}
         {/*  sx={{*/}
